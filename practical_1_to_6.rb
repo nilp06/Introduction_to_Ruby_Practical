@@ -6,12 +6,13 @@
     Create a method to take an argument for the color and print string: the color of the car is ___( fill in the color name here from the argument)
     Create an enum for fuel type and use it with any method
 =end
+require 'enum'
 
 class Car
+    FuelType=Enum.new(:PETROL,:CNG,:DIESEL)
     #here NO_OF_WHEELS is constant
     NO_OF_WHEELS=4
 
-    enum :fuel ["petrol","diesel","CNG"]
     #here @color is instace variable so it accessed anywhere in class 
     #and color is local variable so it is accessed only in initialize method only 
     
@@ -31,9 +32,15 @@ class Car
     def printColor()
         puts "The color of the car is "+@color
     end
+
+    def print_fuel()
+        print FuelType.to_s
+    end
+
 end
 
 
 mycar = Car.new("White")
 mycar.wheels_of_car
 mycar.printColor
+mycar.print_fuel
